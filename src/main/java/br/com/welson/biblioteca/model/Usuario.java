@@ -7,7 +7,7 @@ public class Usuario {
     private Integer id;
     private String nome;
     private Endereco endereco;
-    private List<String> telefones;
+    private String telefone;
     private String email;
     private String usuario;
     private String senha;
@@ -36,12 +36,12 @@ public class Usuario {
         this.endereco = endereco;
     }
 
-    public List<String> getTelefones() {
-        return telefones;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefones(List<String> telefones) {
-        this.telefones = telefones;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEmail() {
