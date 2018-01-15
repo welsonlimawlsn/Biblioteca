@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Biblioteca:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/biblioteca.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Biblioteca/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Biblioteca" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:6.2.2.jre8" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.15" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:6.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
