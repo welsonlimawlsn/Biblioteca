@@ -6,11 +6,13 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Biblioteca" />
+          <element id="jpa-descriptors" facet="Biblioteca/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:6.2.2.jre8" />
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.15" />
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:6.1" />
+          <element id="library" level="project" name="Maven: org.omnifaces:omnifaces:2.6.8" />
         </element>
       </element>
     </root>

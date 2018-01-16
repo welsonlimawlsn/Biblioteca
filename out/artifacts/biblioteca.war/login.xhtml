@@ -17,14 +17,14 @@
             <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;">
 
                 <p:outputLabel value="Usuario:" for="usuario"/>
-                <p:inputText id="usuario" required="true" requiredMessage="Digite um usuário, por favor!"/>
+                <p:inputText value="#{loginBean.usuario}" id="usuario" required="true" requiredMessage="Digite um usuário, por favor!"/>
 
                 <p:outputLabel value="Senha:" for="senha"/>
-                <p:password id="senha" required="true" requiredMessage="Digite uma senha, por favor!"/>
+                <p:password value="#{loginBean.senha}" id="senha" required="true" requiredMessage="Digite uma senha, por favor!"/>
 
                 <p:outputLabel/>
 
-                <p:commandButton value="Entrar"/>
+                <p:commandButton action="#{loginBean.entrar}" value="Entrar"/>
             </h:panelGrid>
         </h:form>
     </p:panel>

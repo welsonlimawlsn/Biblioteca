@@ -1,7 +1,10 @@
 package br.com.welson.biblioteca.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "tab_usuario")
 public class Usuario {
 
     private Integer id;
@@ -12,6 +15,8 @@ public class Usuario {
     private String usuario;
     private String senha;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -20,6 +25,7 @@ public class Usuario {
         this.id = id;
     }
 
+    @Column(length = 60, nullable = false)
     public String getNome() {
         return nome;
     }
@@ -28,6 +34,7 @@ public class Usuario {
         this.nome = nome;
     }
 
+    @Embedded
     public Endereco getEndereco() {
         return endereco;
     }
@@ -36,6 +43,7 @@ public class Usuario {
         this.endereco = endereco;
     }
 
+    @Column(length = 20, nullable = false)
     public String getTelefone() {
         return telefone;
     }
@@ -44,6 +52,7 @@ public class Usuario {
         this.telefone = telefone;
     }
 
+    @Column(length = 100, nullable = false)
     public String getEmail() {
         return email;
     }
@@ -52,6 +61,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @Column(length = 50, nullable = false)
     public String getUsuario() {
         return usuario;
     }
@@ -60,6 +70,7 @@ public class Usuario {
         this.usuario = usuario;
     }
 
+    @Column(length = 50, nullable = false)
     public String getSenha() {
         return senha;
     }

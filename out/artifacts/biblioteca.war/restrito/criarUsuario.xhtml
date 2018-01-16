@@ -5,6 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:o="http://omnifaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Login - Biblioteca</title>
@@ -17,40 +18,43 @@
         <h:form>
             <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;">
                 <p:outputLabel for="nome" value="Nome:"/>
-                <p:inputText id="nome" required="true" requiredMessage="" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.nome}" id="nome" required="true" requiredMessage="Nome é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="telefone" value="Telefone:"/>
-                <p:inputText id="telefone" required="true" requiredMessage="" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.telefone}" id="telefone" required="true" requiredMessage="Telefone é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="email" value="E-mail:"/>
-                <p:inputText id="email" required="true" requiredMessage="" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.email}" id="email" required="true" requiredMessage="E-mail é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="rua" value="Rua:"/>
-                <p:inputText id="rua" required="true" requiredMessage="" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.endereco.rua}" id="rua" required="true" requiredMessage="Rua é obrigatória" style="width: 225px;"/>
 
-                <p:outputLabel for="numero" value="Numero:"/>
-                <p:inputText id="numero" required="true" requiredMessage="" style="width: 270px;"/>
+                <p:outputLabel for="numero" value="Número:"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.endereco.numero}" id="numero" required="true" requiredMessage="Número é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="cidade" value="Cidade:" id="cidade"/>
-                <p:selectOneMenu required="true" requiredMessage="Selecione uma cidade">
+                <p:selectOneMenu value="#{criarUsuarioBean.usuario.endereco.cidade}" required="true" requiredMessage="Cidade é obrigatória">
                     <f:selectItem noSelectionOption="true" itemLabel="Selecione uma cidade"/>
-                    <f:selectItems value="#{Cidade.ALL_ENUM_VALUES}" var="cidadeA" itemLabel="#{cidade}" itemValue="#{cidade}"/>
+                    <f:selectItems value="#{Cidade.ALL_ENUM_VALUES}" var="cidade" itemLabel="#{cidade.cidade}" itemValue="#{cidade}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel for="cep" value="CEP:"/>
-                <p:inputText id="cep" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="usuario" value="Usuário:"/>
-                <p:inputText id="usuario" style="width: 270px;"/>
+                <p:inputText value="#{criarUsuarioBean.usuario.usuario}" id="usuario" required="true" requiredMessage="Usuário é obrigatório" style="width: 225px;"/>
 
                 <p:outputLabel for="senha" value="Senha:"/>
-                <p:password id="senha" style="width: 270px;"/>
+                <p:password value="#{criarUsuarioBean.usuario.senha}" id="senha" required="true" requiredMessage="Senha é obrigatória" style="width: 225px;"/>
 
-                <p:outputLabel for="confimacao-senha" value="Confime a senha:"/>
-                <p:password id="confimacao-senha" style="width: 270px;"/>
+                <p:outputLabel for="confimacao" value="Confime a senha:"/>
+                <p:password id="confimacao" required="true" requiredMessage="Confirmação de senha é obrigatória" style="width: 225px;"/>
+
+                <o:validateEqual components="senha confimacao" message="As senhas não são iguais"/>
 
                 <p:outputLabel/>
-                <p:commandButton value="Criar"/>
+                <p:outputLabel/>
+                <p:commandButton action="#{criarUsuarioBean.salvar}" value="Criar"/>
             </h:panelGrid>
         </h:form>
     </p:panel>
