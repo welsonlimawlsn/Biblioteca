@@ -33,6 +33,12 @@ public class LoginBean implements Serializable {
         return null;
     }
 
+    public String sair() {
+        user = new Usuario();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "/login.xhtml?faces-redirect=true";
+    }
+
     public String getUsuario() {
         return usuario;
     }

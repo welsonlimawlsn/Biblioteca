@@ -6,6 +6,7 @@ public class Leitor {
 
     private Long id;
     private String nome;
+    private String email;
     private List<String> telefones;
     private Endereco endereco;
 
@@ -23,6 +24,14 @@ public class Leitor {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<String> getTelefones() {

@@ -7,7 +7,7 @@
     <ui:define name="titulo">Criar um novo usuário</ui:define>
     <ui:define name="content">
         <p:importEnum type="br.com.welson.biblioteca.model.Cidade" var="Cidade" allSuffix="ALL_ENUM_VALUES"/>
-        <p:panel header="Criar um novo usuário" style="width: 550px; margin: 0 auto;">
+        <p:panel header="Criar um novo leitor" style="width: 550px; margin: 0 auto;">
             <p:messages autoUpdate="true" closable="true"/>
             <h:form>
                 <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;">
@@ -35,18 +35,6 @@
                     <p:outputLabel for="cep" value="CEP:"/>
                     <p:inputText value="#{criarUsuarioBean.usuario.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
 
-                    <p:outputLabel for="usuario" value="Usuário:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.usuario}" id="usuario" required="true" requiredMessage="Usuário é obrigatório" style="width: 225px;"/>
-
-                    <p:outputLabel for="senha" value="Senha:"/>
-                    <p:password value="#{criarUsuarioBean.usuario.senha}" id="senha" required="true" requiredMessage="Senha é obrigatória" style="width: 225px;"/>
-
-                    <p:outputLabel for="confimacao" value="Confime a senha:"/>
-                    <p:password id="confimacao" required="true" requiredMessage="Confirmação de senha é obrigatória" style="width: 225px;"/>
-
-                    <o:validateEqual components="senha confimacao" message="As senhas não são iguais"/>
-
-                    <p:outputLabel/>
                     <p:outputLabel/>
                     <p:commandButton action="#{criarUsuarioBean.salvar}" value="Criar"/>
                 </h:panelGrid>
