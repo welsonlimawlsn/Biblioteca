@@ -12,31 +12,31 @@
             <h:form>
                 <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;">
                     <p:outputLabel for="nome" value="Nome:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.nome}" id="nome" required="true" requiredMessage="Nome é obrigatório" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.nome}" id="nome" required="true" requiredMessage="Nome é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel for="telefone" value="Telefone:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.telefone}" id="telefone" required="true" requiredMessage="Telefone é obrigatório" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.telefone}" id="telefone" required="true" requiredMessage="Telefone é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel for="email" value="E-mail:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.email}" id="email" required="true" requiredMessage="E-mail é obrigatório" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.email}" id="email" required="true" requiredMessage="E-mail é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel for="rua" value="Rua:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.endereco.rua}" id="rua" required="true" requiredMessage="Rua é obrigatória" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.endereco.rua}" id="rua" required="true" requiredMessage="Rua é obrigatória" style="width: 225px;"/>
 
                     <p:outputLabel for="numero" value="Número:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.endereco.numero}" id="numero" required="true" requiredMessage="Número é obrigatório" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.endereco.numero}" id="numero" required="true" requiredMessage="Número é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel for="cidade" value="Cidade:" id="cidade"/>
-                    <p:selectOneMenu value="#{criarUsuarioBean.usuario.endereco.cidade}" required="true" requiredMessage="Cidade é obrigatória">
+                    <p:selectOneMenu value="#{criarLeitorBean.leitor.endereco.cidade}" required="true" requiredMessage="Cidade é obrigatória">
                         <f:selectItem noSelectionOption="true" itemLabel="Selecione uma cidade"/>
                         <f:selectItems value="#{Cidade.ALL_ENUM_VALUES}" var="cidade" itemLabel="#{cidade.cidade}" itemValue="#{cidade}"/>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="cep" value="CEP:"/>
-                    <p:inputText value="#{criarUsuarioBean.usuario.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
+                    <p:inputText value="#{criarLeitorBean.leitor.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel/>
-                    <p:commandButton action="#{criarUsuarioBean.salvar}" value="Criar"/>
+                    <p:commandButton action="#{criarLeitorBean.salvar}" value="Criar"/>
                 </h:panelGrid>
             </h:form>
         </p:panel>

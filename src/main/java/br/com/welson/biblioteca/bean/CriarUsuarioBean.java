@@ -1,6 +1,7 @@
 package br.com.welson.biblioteca.bean;
 
 import br.com.welson.biblioteca.model.Endereco;
+import br.com.welson.biblioteca.model.Persistence;
 import br.com.welson.biblioteca.model.Usuario;
 import br.com.welson.biblioteca.model.util.JpaUtil;
 
@@ -25,15 +26,7 @@ public class CriarUsuarioBean implements Serializable {
 
     public void salvar() {
         //Por enquando
-        EntityManager manager = JpaUtil.getEntityManager();
-        EntityTransaction transaction = manager.getTransaction();
-        transaction.begin();
-
-        manager.persist(usuario);
-
-        transaction.commit();
-        manager.close();
-        JpaUtil.close();
+        Persistence.salvar(usuario);
     }
 
     public Usuario getUsuario() {

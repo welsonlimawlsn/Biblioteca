@@ -1,15 +1,20 @@
 package br.com.welson.biblioteca.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "leitor")
 public class Leitor {
 
     private Long id;
     private String nome;
     private String email;
-    private List<String> telefones;
+    private String telefone;
     private Endereco endereco;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -18,6 +23,7 @@ public class Leitor {
         this.id = id;
     }
 
+    @Column(length = 50, nullable = false)
     public String getNome() {
         return nome;
     }
@@ -26,6 +32,7 @@ public class Leitor {
         this.nome = nome;
     }
 
+    @Column(length = 100, nullable = false)
     public String getEmail() {
         return email;
     }
@@ -34,14 +41,16 @@ public class Leitor {
         this.email = email;
     }
 
-    public List<String> getTelefones() {
-        return telefones;
+    @Column(length = 20, nullable = false)
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefones(List<String> telefones) {
-        this.telefones = telefones;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
+    @Embedded
     public Endereco getEndereco() {
         return endereco;
     }
