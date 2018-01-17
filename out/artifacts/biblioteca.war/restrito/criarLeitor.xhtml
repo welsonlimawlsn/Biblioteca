@@ -4,7 +4,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:o="http://omnifaces.org/ui"
                 template="/WEB-INF/template/layout.xhtml">
-    <ui:define name="titulo">Criar um novo usuário</ui:define>
+    <ui:define name="titulo">Criar um novo Leitor</ui:define>
     <ui:define name="content">
         <p:importEnum type="br.com.welson.biblioteca.model.Cidade" var="Cidade" allSuffix="ALL_ENUM_VALUES"/>
         <p:panel header="Criar um novo leitor" style="width: 550px; margin: 0 auto;">
@@ -36,7 +36,7 @@
                     <p:inputText value="#{criarLeitorBean.leitor.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
 
                     <p:outputLabel/>
-                    <p:commandButton action="#{criarLeitorBean.salvar}" value="Criar"/>
+                    <p:commandButton action="#{criarLeitorBean.salvar}" value="Criar" update="@form"/>
                 </h:panelGrid>
             </h:form>
         </p:panel>

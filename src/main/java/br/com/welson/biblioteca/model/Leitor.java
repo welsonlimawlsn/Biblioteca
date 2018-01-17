@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "leitor")
+@Table(name = "tab_leitor")
 public class Leitor {
 
     private Long id;
@@ -23,7 +23,7 @@ public class Leitor {
         this.id = id;
     }
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 60, nullable = false)
     public String getNome() {
         return nome;
     }

@@ -5,6 +5,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>br.com.welson.biblioteca.model.Usuario</class>
         <class>br.com.welson.biblioteca.model.Leitor</class>
+        <class>br.com.welson.biblioteca.model.Autor</class>
+        <class>br.com.welson.biblioteca.model.Livro</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:sqlserver://localhost:1433;databaseName=biblioteca"/>
             <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

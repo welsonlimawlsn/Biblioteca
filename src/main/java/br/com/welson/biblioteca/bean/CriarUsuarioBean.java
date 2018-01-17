@@ -7,6 +7,8 @@ import br.com.welson.biblioteca.model.util.JpaUtil;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -27,6 +29,12 @@ public class CriarUsuarioBean implements Serializable {
     public void salvar() {
         //Por enquando
         Persistence.salvar(usuario);
+
+        usuario = new Usuario();
+        usuario.setEndereco(new Endereco());
+
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso!", null));
     }
 
     public Usuario getUsuario() {

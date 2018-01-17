@@ -1,7 +1,10 @@
 package br.com.welson.biblioteca.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "tab_livro")
 public class Livro {
 
     private Long id;
@@ -11,6 +14,8 @@ public class Livro {
     private Integer anoPublicacao;
     private Integer numeroEdicao;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -19,6 +24,7 @@ public class Livro {
         this.id = id;
     }
 
+    @Column(length = 100, nullable = false)
     public String getTitulo() {
         return titulo;
     }
@@ -27,6 +33,7 @@ public class Livro {
         this.titulo = titulo;
     }
 
+    @Column(nullable = false)
     public Integer getQuantidadePaginas() {
         return quantidadePaginas;
     }
@@ -35,6 +42,8 @@ public class Livro {
         this.quantidadePaginas = quantidadePaginas;
     }
 
+    @ManyToMany
+    @Column(nullable = false)
     public List<Autor> getAutores() {
         return autores;
     }

@@ -3,9 +3,10 @@ package br.com.welson.biblioteca.bean;
 import br.com.welson.biblioteca.model.Endereco;
 import br.com.welson.biblioteca.model.Leitor;
 import br.com.welson.biblioteca.model.Persistence;
-import br.com.welson.biblioteca.model.util.JpaUtil;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -24,6 +25,12 @@ public class CriarLeitorBean implements Serializable {
 
     public void salvar() {
         Persistence.salvar(leitor);
+
+        leitor = new Leitor();
+        leitor.setEndereco(new Endereco());
+
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Leitor criado com sucesso!", null));
     }
 
     public Leitor getLeitor() {
