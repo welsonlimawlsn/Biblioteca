@@ -42,7 +42,7 @@ public class Livro {
         this.quantidadePaginas = quantidadePaginas;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @Column(nullable = false)
     public List<Autor> getAutores() {
         return autores;

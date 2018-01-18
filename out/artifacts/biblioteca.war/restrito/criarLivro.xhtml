@@ -1,0 +1,54 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:o="http://omnifaces.org/ui"
+                template="/WEB-INF/template/layout.xhtml">
+    <ui:define name="titulo">Criar um novo Livro</ui:define>
+    <ui:define name="content">
+        <p:panel header="Criar um novo Livro" style="width: 550px; margin: 0 auto;">
+            <p:messages autoUpdate="true" closable="true"/>
+            <h:form id="formulario">
+                <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;" id="painelCriarLivro">
+                    <p:outputLabel for="tituloLivro" value="Titulo: "/>
+                    <p:inputText id="tituloLivro" value="#{criarLivroBean.livro.titulo}" requiredMessage="O titulo do livro é obrigatório!" required="true"/>
+
+                    <p:outputLabel for="quantidadePaginas" value="Quantidade de paginas:"/>
+                    <p:inputText value="#{criarLivroBean.livro.quantidadePaginas}" required="true" id="quantidadePaginas" requiredMessage="A quantidade de páginas é obtigatória!"/>
+
+                    <p:outputLabel for="anoPublicacao" value="Ano de publicação: "/>
+                    <p:inputText id="anoPublicacao" value="#{criarLivroBean.livro.anoPublicacao}" />
+
+                    <p:outputLabel for="numeroEdicao" value="Número da edição: "/>
+                    <p:inputText id="numeroEdicao" value="#{criarLivroBean.livro.numeroEdicao}"/>
+
+                    <p:outputLabel for="pesquisarAutor" value="Pesquisar autor: "/>
+                    <p:inputText value="#{criarLivroBean.termoPesquisa}" id="pesquisarAutor">
+                        <f:ajax delay="1000" event="keyup" listener="#{criarLivroBean.pesquisarAutor}" render="autoresPesquisados"/>
+                    </p:inputText>
+
+                    <p:panel header="Pesquisando...">
+                        <p:dataTable value="#{criarLivroBean.autoresPesquisados}" var="autor" id="autoresPesquisados">
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{autor.nome}"/>
+                            </p:column>
+                            <p:column headerText="">
+                                <p:commandLink immediate="true" value="Adicionar" actionListener="#{criarLivroBean.adicionarAutor(autor)}"
+                                               update="formulario:autoresLivros"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                    <p:panel header="Autores do Livro" id="painel2">
+                        <p:dataTable value="#{criarLivroBean.livro.autores}" var="autor" id="autoresLivros">
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{autor.nome}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                    <h:outputText/>
+                    <p:commandButton value="Cadastrar" actionListener="#{criarLivroBean.salvar}" update="@form"/>
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

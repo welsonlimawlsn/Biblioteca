@@ -50,7 +50,7 @@ public class Autor {
         this.site = site;
     }
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "autor_livros",
         joinColumns = @JoinColumn(name = "id_autor"),
         inverseJoinColumns = @JoinColumn(name = "id_livro"))
