@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "tab_usuario")
 public class Usuario {
 
-    private Integer id;
+    private Long id;
     private String nome;
     private Endereco endereco;
     private String telefone;
@@ -17,11 +17,11 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

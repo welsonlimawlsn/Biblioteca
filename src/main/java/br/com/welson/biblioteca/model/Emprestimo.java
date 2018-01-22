@@ -9,6 +9,7 @@ public class Emprestimo {
     private Date dataInicio;
     private Date dataFim;
     private Leitor leitor;
+    private Usuario usuario;
     private List<Livro> livros;
 
     public Long getId() {
@@ -41,6 +42,14 @@ public class Emprestimo {
 
     public void setLeitor(Leitor leitor) {
         this.leitor = leitor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public List<Livro> getLivros() {

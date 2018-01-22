@@ -1,0 +1,54 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:o="http://omnifaces.org/ui"
+                template="/WEB-INF/template/layout.xhtml">
+    <ui:define name="titulo">Criar um novo usuário</ui:define>
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewAction action="#{editarUsuarioBean.init}"/>
+        </f:metadata>
+        <p:importEnum type="br.com.welson.biblioteca.model.Cidade" var="Cidade" allSuffix="ALL_ENUM_VALUES"/>
+        <p:panel header="Criar um novo usuário" style="width: 550px; margin: 0 auto;">
+            <p:messages autoUpdate="true" closable="true"/>
+            <h:form>
+                <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;">
+                    <p:outputLabel for="nome" value="Nome:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.nome}" id="nome" required="true" requiredMessage="Nome é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="telefone" value="Telefone:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.telefone}" id="telefone" required="true" requiredMessage="Telefone é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="email" value="E-mail:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.email}" id="email" required="true" requiredMessage="E-mail é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="rua" value="Rua:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.endereco.rua}" id="rua" required="true" requiredMessage="Rua é obrigatória" style="width: 225px;"/>
+
+                    <p:outputLabel for="numero" value="Número:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.endereco.numero}" id="numero" required="true" requiredMessage="Número é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="cidade" value="Cidade:" id="cidade"/>
+                    <p:selectOneMenu value="#{editarUsuarioBean.usuario.endereco.cidade}" required="true" requiredMessage="Cidade é obrigatória">
+                        <f:selectItem noSelectionOption="true" itemLabel="Selecione uma cidade"/>
+                        <f:selectItems value="#{Cidade.ALL_ENUM_VALUES}" var="cidade" itemLabel="#{cidade.cidade}" itemValue="#{cidade}"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="cep" value="CEP:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.endereco.cep}" id="cep" required="true" requiredMessage="CEP é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="usuario" value="Usuário:"/>
+                    <p:inputText value="#{editarUsuarioBean.usuario.usuario}" id="usuario" required="true" requiredMessage="Usuário é obrigatório" style="width: 225px;"/>
+
+                    <p:outputLabel for="senha" value="Senha:"/>
+                    <p:password value="#{editarUsuarioBean.usuario.senha}" id="senha" required="true" requiredMessage="Senha é obrigatória" style="width: 225px;"/>
+
+                    <p:outputLabel/>
+                    <p:outputLabel/>
+                    <p:commandButton action="#{editarUsuarioBean.alterar}" value="Salvar" update="@form"/>
+                </h:panelGrid>
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

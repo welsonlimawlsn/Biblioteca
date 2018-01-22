@@ -26,7 +26,7 @@ public class LoginBean implements Serializable {
         query.setParameter("senha", this.senha);
         if(query.getResultList().size() == 1) {
             this.user = (Usuario) query.getResultList().get(0);
-            return "/restrito/criarUsuario.xhtml?faces-redirect=true";
+            return "/restrito/painel.xhtml?faces-redirect=true";
         }
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário ou senha incorretos!", "");
         FacesContext.getCurrentInstance().addMessage(null, message);

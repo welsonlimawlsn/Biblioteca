@@ -11,20 +11,23 @@
             <h:form id="formulario">
                 <h:panelGrid columns="2" style="text-align: right; margin: 0 auto;" id="painelCriarLivro">
                     <p:outputLabel for="tituloLivro" value="Titulo: "/>
-                    <p:inputText id="tituloLivro" value="#{criarLivroBean.livro.titulo}" requiredMessage="O titulo do livro é obrigatório!" required="true"/>
+                    <p:inputText id="tituloLivro" value="#{criarLivroBean.livro.titulo}"
+                                 requiredMessage="O titulo do livro é obrigatório!" required="true"/>
 
                     <p:outputLabel for="quantidadePaginas" value="Quantidade de paginas:"/>
-                    <p:inputText value="#{criarLivroBean.livro.quantidadePaginas}" required="true" id="quantidadePaginas" requiredMessage="A quantidade de páginas é obtigatória!"/>
+                    <p:inputText value="#{criarLivroBean.livro.quantidadePaginas}" required="true"
+                                 id="quantidadePaginas" requiredMessage="A quantidade de páginas é obtigatória!"/>
 
                     <p:outputLabel for="anoPublicacao" value="Ano de publicação: "/>
-                    <p:inputText id="anoPublicacao" value="#{criarLivroBean.livro.anoPublicacao}" />
+                    <p:inputText id="anoPublicacao" value="#{criarLivroBean.livro.anoPublicacao}"/>
 
                     <p:outputLabel for="numeroEdicao" value="Número da edição: "/>
                     <p:inputText id="numeroEdicao" value="#{criarLivroBean.livro.numeroEdicao}"/>
 
                     <p:outputLabel for="pesquisarAutor" value="Pesquisar autor: "/>
                     <p:inputText value="#{criarLivroBean.termoPesquisa}" id="pesquisarAutor">
-                        <f:ajax delay="1000" event="keyup" listener="#{criarLivroBean.pesquisarAutor}" render="autoresPesquisados"/>
+                        <f:ajax delay="1000" event="keyup" listener="#{criarLivroBean.pesquisarAutor}"
+                                render="autoresPesquisados"/>
                     </p:inputText>
 
                     <p:panel header="Pesquisando...">
@@ -33,7 +36,8 @@
                                 <h:outputText value="#{autor.nome}"/>
                             </p:column>
                             <p:column headerText="">
-                                <p:commandLink immediate="true" value="Adicionar" actionListener="#{criarLivroBean.adicionarAutor(autor)}"
+                                <p:commandLink immediate="true" value="Adicionar"
+                                               actionListener="#{criarLivroBean.adicionarAutor(autor)}"
                                                update="formulario:autoresLivros"/>
                             </p:column>
                         </p:dataTable>
